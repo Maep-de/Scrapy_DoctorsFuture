@@ -4,15 +4,14 @@ import scrapy
 class QuotesSpider(scrapy.Spider):
     name = "quotes"
     start_urls = [
-
-        'http://quotes.toscrape.com/page/1/',
-        'http://quotes.toscrape.com/page/2/',
+        'https://www.deutsches-krankenhaus-verzeichnis.de/app/suche/bundesland/sachsen'
     ]
 
     def parse(self, response):
-        for quote in response.css('div.quote'):
+        for quote in response.css('div.tab-content'):
             yield {
-                'text': quote.css('span.text::text').get(),
-                'author': quote.css('small.author::text').get(),
-                'tags': quote.css('div.tags a.tag::text').getall(),
+                'Hospital': quote.css('div.tab-content strong a.tag::text').getall(),
+                'text': quote.css('div.tab-content address::text').getall(),
             }
+
+
