@@ -1,4 +1,4 @@
-# Scrapy_DoctorsFuture
+# Scrapy_Sample_Project
 
 Following Link: https://docs.scrapy.org/en/latest/intro/tutorial.html
 
